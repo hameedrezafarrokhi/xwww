@@ -18,7 +18,6 @@ Install dependencies from your distros package manager.
 In progress...
 
 #### Automatic
-Others can install it directly using the install script.
 
 **WARNING: Read any script before running it on your system.**
 ```bash
