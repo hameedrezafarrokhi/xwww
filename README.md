@@ -4,7 +4,7 @@ Animated wallpaper transitions for X11.
 This was inspired by [awww](https://codeberg.org/LGFae/awww) (the wayland wallpaper daemon with animated transitions, formerly known as [swww](https://github.com/LGFae/swww)). It is not a swww/awww replacement. It uses [FFMPEG](https://www.ffmpeg.org/) and hsetroot.
 
 ### Demo
-
+(https://github.com/hameedrezafarrokhi/xwww/blob/main/demo.mp4)
 
 ### Dependencies
 * `bash`
