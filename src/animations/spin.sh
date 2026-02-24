@@ -23,7 +23,7 @@ for i in $(seq 1 $FRAMES); do
     scale_old_f=$(printf "%.6f" "$scale_old")
     scale_new_f=$(printf "%.6f" "$scale_new")
     ffmpeg "${ACCEL[@]}" -y -i "$CUR_WALL" -i "$NEW_WALL" -filter_complex "
-        color=c=black:s=1920x1080[bg];
+        color=c=black:s="$R_X"x"$R_Y"[bg];
         [0:v]scale=iw*${scale_old_f}:ih*${scale_old_f},
               rotate=${angle_old_f}:fillcolor=black[oldv];
         [1:v]scale=iw*${scale_new_f}:ih*${scale_new_f},
