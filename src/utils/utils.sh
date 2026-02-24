@@ -17,31 +17,33 @@ setup() {
 
 set_walls() {
   for i in $(seq 1 $FRAMES); do
-      hsetroot -cover "$CACHE/new$i.$FORMAT"
+      $TRANSITION_CMD "$CACHE/new$i.$FORMAT"
       sleep $SPEED
   done
   wait
-  feh --bg-fill "$NEW_WALL"
+  $FINAL_CMD "$NEW_WALL"
   rm -f "$CACHE"/new*
   rm -f "$HOME/.cache/xwww/current"
   echo "$NEW_WALL" >> "$HOME/.cache/xwww/current"
+  echo "$ANIMATION" >> "$HOME/.cache/xwww/animation"
 }
 
 set_fade() {
   if [[ -f "$CACHE/fade/old"* ]]; then
       for i in $(seq $IMAGES -1 1); do
-          hsetroot -cover "$CACHE/fade/old$i.$FORMAT" && sleep $SPEED
+          $TRANSITION_CMD "$CACHE/fade/old$i.$FORMAT" && sleep $SPEED
       done
   fi
   for i in $(seq 1 $IMAGES); do
-      hsetroot -cover "$CACHE/fade/new$i.$FORMAT" && sleep $SPEED
+      $TRANSITION_CMD "$CACHE/fade/new$i.$FORMAT" && sleep $SPEED
   done
   wait
-  feh --bg-fill "$NEW_WALL"
+  $FINAL_CMD "$NEW_WALL"
   rm -f "$CACHE/fade"/old*
   for frame in "$CACHE/fade"/new*; do mv "$frame" "${frame/new/old}"; done
   rm -f "$HOME/.cache/xwww/current-fade"
   rm -f "$HOME/.cache/xwww/current"
   echo "$NEW_WALL" >> "$HOME/.cache/xwww/current"
   echo "$NEW_WALL" >> "$HOME/.cache/xwww/current-fade"
+  echo "$ANIMATION" >> "$HOME/.cache/xwww/animation"
 }

@@ -7,6 +7,7 @@ FRAMES="$2"
 SPEED="$3"
 ANIMATION="$4"
 FORMAT="$5"
+RND="$6"
 
 MIN_T=0          # at (0,0)
 MAX_T=3000       # at (1920,1080)

@@ -7,6 +7,7 @@ FRAMES="$2"
 SPEED="$3"
 ANIMATION="$4"
 FORMAT="$5"
+RND="$6"
 
 MIN_XY=-1080    # at (0,1080) bottom‑left
 MAX_XY=1920     # at (1920,0) top‑right

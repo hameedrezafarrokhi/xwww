@@ -7,6 +7,7 @@ FRAMES="$2"
 SPEED="$3"
 ANIMATION="$4"
 FORMAT="$5"
+RND="$6"
 
 setup
 for i in $(seq 1 $FRAMES); do
