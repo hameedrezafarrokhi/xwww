@@ -15,7 +15,7 @@ for i in $(seq 1 $FRAMES); do
     f=$(echo "scale=4; ($i-1) / ($FRAMES-1)" | bc)
     amp_old=$(( (i-1) * MAX_AMP / (FRAMES-1) ))
     amp_new=$(( MAX_AMP - amp_old ))
-    ffmpeg -y -i "$CUR_WALL" -i "$NEW_WALL" -filter_complex "
+    ffmpeg "${ACCEL[@]}" -y -i "$CUR_WALL" -i "$NEW_WALL" -filter_complex "
         [0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,format=yuv420p[old];
         [1:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,format=yuv420p[new];
         [old]geq=lum='p(X+${amp_old}*sin(2*${PI}*Y/${WAVELEN}),Y)':

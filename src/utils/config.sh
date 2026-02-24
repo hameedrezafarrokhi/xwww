@@ -8,5 +8,7 @@ CONFIG_DIR="$XDG_CONF/xwww"
 export SLEEP=0.001
 export FRAMES=14
 export ANIMATION="fade"
+export ACCEL=(-hwaccel vaapi)
+# -c:v mjpeg
 
 source "$CONFIG_DIR/xwwwc" 2> /dev/null || true;

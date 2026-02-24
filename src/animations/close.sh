@@ -15,7 +15,7 @@ for i in $(seq 1 $FRAMES); do
     fi
     L=$offset
     R=$((1920 - offset))
-    ffmpeg -y -i "$CUR_WALL" -i "$NEW_WALL" -filter_complex "
+    ffmpeg "${ACCEL[@]}" -y -i "$CUR_WALL" -i "$NEW_WALL" -filter_complex "
         [0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,format=yuv420p[old];
         [1:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,format=yuv420p[new];
         nullsrc=size=1920x1080,

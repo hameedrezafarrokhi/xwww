@@ -16,7 +16,7 @@ for i in $(seq 1 $IMAGES); do
         alpha=0.90
         scale="iw/2"
     fi
-    ffmpeg -y -i "$NEW_WALL" -vf "scale=$scale:-1,format=rgba,colorchannelmixer=aa=$alpha" "$CACHE/new$i.png"
+    ffmpeg "${ACCEL[@]}" -y -i "$NEW_WALL" -vf "scale=$scale:-1,format=rgba,colorchannelmixer=aa=$alpha" "$CACHE/fade/new$i.png"
 done
 wait 2>/dev/null
 set_fade

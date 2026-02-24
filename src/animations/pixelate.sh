@@ -21,7 +21,7 @@ for i in $(seq 1 $FRAMES); do
     h2_new=$((1080 / block_new))
     [ $w2_new -lt 1 ] && w2_new=1
     [ $h2_new -lt 1 ] && h2_new=1
-    ffmpeg -y -i "$CUR_WALL" -i "$NEW_WALL" -filter_complex "
+    ffmpeg "${ACCEL[@]}" -y -i "$CUR_WALL" -i "$NEW_WALL" -filter_complex "
         [0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080[old];
         [1:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080[new];
         [old]scale=${w2_old}:${h2_old}:flags=neighbor,scale=1920:1080:flags=neighbor[old_pix];

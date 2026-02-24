@@ -11,11 +11,11 @@ for i in $(seq 1 $FRAMES); do
     new_h=$(echo "scale=2; $i * 1080 / $FRAMES" | bc | cut -d. -f1)
     old_h=$((1080 - new_h))
     if [ $new_h -eq 0 ]; then
-        ffmpeg -y -i "$CUR_WALL" -filter_complex "[0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" -frames:v 1 "$CACHE/new$i.png" &
+        ffmpeg "${ACCEL[@]}" -y -i "$CUR_WALL" -filter_complex "[0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" -frames:v 1 "$CACHE/new$i.png" &
     elif [ $old_h -eq 0 ]; then
-        ffmpeg -y -i "$NEW_WALL" -filter_complex "[0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" -frames:v 1 "$CACHE/new$i.png" &
+        ffmpeg "${ACCEL[@]}" -y -i "$NEW_WALL" -filter_complex "[0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" -frames:v 1 "$CACHE/new$i.png" &
     else
-        ffmpeg -y -i "$CUR_WALL" -i "$NEW_WALL" -filter_complex "
+        ffmpeg "${ACCEL[@]}" -y -i "$CUR_WALL" -i "$NEW_WALL" -filter_complex "
             [0:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080[old];
             [1:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080[new];
             [new]crop=1920:${new_h}:0:0[top];
