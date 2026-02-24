@@ -5,6 +5,8 @@ source "$ROOT/utils/utils.sh"
 NEW_WALL="$1"
 FRAMES="$2"
 SPEED="$3"
+ANIMATION="$4"
+FORMAT="$5"
 
 setup
 for i in $(seq 1 $FRAMES); do
@@ -17,8 +19,8 @@ for i in $(seq 1 $FRAMES); do
         [new]null[bg];
         [bg][left]overlay=x=-${offset}:y=0[bg_left];
         [bg_left][right]overlay=x=960+${offset}:y=0[out]
-    " -map "[out]" -frames:v 1 "$CACHE/new$i.png"
-    if [ $? -ne 0 ] || [ ! -s "$CACHE/new$i.png" ]; then
+    " -map "[out]" -frames:v 1 "$CACHE/new$i.$FORMAT"
+    if [ $? -ne 0 ] || [ ! -s "$CACHE/new$i.$FORMAT" ]; then
         echo "Error generating frame $i. Aborting."
         exit 1
     fi

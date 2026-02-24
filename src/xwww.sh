@@ -29,6 +29,10 @@ while [[ $# -gt 0 ]]; do
             ANIMATION="$2"
             shift 2
             ;;
+        --format)
+            FORMAT="$2"
+            shift 2
+            ;;
         *)
             echo "Unknown option: $1"
             exit 1
@@ -36,4 +40,6 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-$ROOT/animations/$ANIMATION.sh "$NEW_WALL" "$FRAMES" "$SPEED"
+$ROOT/animations/$ANIMATION.sh "$NEW_WALL" "$FRAMES" "$SPEED" "$ANIMATION" "$FORMAT"
+
+echo "$ANIMATION" >> "$HOME/.cache/xwww/animation"

@@ -5,6 +5,8 @@ source "$ROOT/utils/utils.sh"
 NEW_WALL="$1"
 FRAMES="$2"
 SPEED="$3"
+ANIMATION="$4"
+FORMAT="$5"
 
 PI=$(echo "scale=10; 4*a(1)" | bc -l)
 
@@ -27,9 +29,9 @@ for i in $(seq 1 $FRAMES); do
               rotate=${angle_new_f}:fillcolor=black[newv];
         [bg][oldv]overlay=x=(main_w-overlay_w)/2:y=(main_h-overlay_h)/2[tmp];
         [tmp][newv]overlay=x=(main_w-overlay_w)/2:y=(main_h-overlay_h)/2[out]
-    " -map "[out]" -frames:v 1 "$CACHE/new$i.png"
+    " -map "[out]" -frames:v 1 "$CACHE/new$i.$FORMAT"
 
-    if [ $? -ne 0 ] || [ ! -s "$CACHE/new$i.png" ]; then
+    if [ $? -ne 0 ] || [ ! -s "$CACHE/new$i.$FORMAT" ]; then
         echo "Error generating frame $i. Aborting."
         exit 1
     fi

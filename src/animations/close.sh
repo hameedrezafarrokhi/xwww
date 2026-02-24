@@ -5,6 +5,8 @@ source "$ROOT/utils/utils.sh"
 NEW_WALL="$1"
 FRAMES="$2"
 SPEED="$3"
+ANIMATION="$4"
+FORMAT="$5"
 
 setup
 for i in $(seq 1 $FRAMES); do
@@ -22,9 +24,9 @@ for i in $(seq 1 $FRAMES); do
                geq=lum='if(lt(X,${L}) + gt(X,${R}), 255, 0)',
                format=gray[mask];
         [old][new][mask]maskedmerge[out]
-    " -map "[out]" -frames:v 1 "$CACHE/new$i.png"
+    " -map "[out]" -frames:v 1 "$CACHE/new$i.$FORMAT"
 
-    if [ $? -ne 0 ] || [ ! -s "$CACHE/new$i.png" ]; then
+    if [ $? -ne 0 ] || [ ! -s "$CACHE/new$i.$FORMAT" ]; then
         echo "Error generating frame $i. Aborting."
         exit 1
     fi

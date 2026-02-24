@@ -9,6 +9,7 @@ export SLEEP=0.001
 export FRAMES=14
 export ANIMATION="fade"
 export ACCEL=(-hwaccel vaapi)
+export FORMAT=png
 # -c:v mjpeg
 
 source "$CONFIG_DIR/xwwwc" 2> /dev/null || true;
