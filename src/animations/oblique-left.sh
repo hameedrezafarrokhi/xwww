@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-source "$ROOT/utils/config.sh"
-source "$ROOT/utils/utils.sh"
-NEW_WALL="$1"
-FRAMES="$2"
-SPEED="$3"
-ANIMATION="$4"
-FORMAT="$5"
-RND="$6"
-
 MIN_XY=-$R_X    # at (0,1080) bottom‑left
 MAX_XY=$R_Y     # at (1920,0) top‑right
 

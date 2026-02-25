@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-source "$ROOT/utils/config.sh"
-source "$ROOT/utils/utils.sh"
-NEW_WALL="$1"
-FRAMES="$2"
-SPEED="$3"
-ANIMATION="$4"
-FORMAT="$5"
-RND="$6"
-
 CX=$(( R_X / 2 ))  # Center of screen
 CY=$(( R_Y / 2 ))
 

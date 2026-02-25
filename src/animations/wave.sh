@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-source "$ROOT/utils/config.sh"
-source "$ROOT/utils/utils.sh"
-NEW_WALL="$1"
-FRAMES="$2"
-SPEED="$3"
-ANIMATION="$4"
-FORMAT="$5"
-RND="$6"
-
 MAX_AMP=$WAVE_AMP          # maximum wave amplitude (pixels)
 WAVELEN=$WAVE_LENGHT         # wavelength (pixels)
 PI=$(echo "scale=10; 4*a(1)" | bc -l)   # π for sine calculation

@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-source "$ROOT/utils/config.sh"
-source "$ROOT/utils/utils.sh"
-NEW_WALL="$1"
-FRAMES="$2"
-SPEED="$3"
-ANIMATION="$4"
-FORMAT="$5"
-RND="$6"
-
 setup
 for i in $(seq 1 $FRAMES); do
     new_h=$(( i * R_Y / FRAMES ))
