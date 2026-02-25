@@ -20,7 +20,7 @@ This was inspired by [awww](https://codeberg.org/LGFae/awww) (the wayland wallpa
 
 *WARNING*: Read any script before running it on your system.
 ```bash
-curl https://raw.githubusercontent.com/hameedrezafarrokhi/xwww/main/install.sh | bash -;
+curl https://raw.githubusercontent.com/hameedrezafarrokhi/xwww/v0.1.0/install.sh | bash -;
 ```
 
 #### Manual
